@@ -1,0 +1,89 @@
+* {
+   padding: 0;
+   margin: 0;
+   font-family: "Helvetica";
+   box-sizing: border-box;
+}
+
+body {
+    padding: 1rem;
+}
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+button {
+    padding: .6rem 1.2rem;
+    background-color: #888;
+    color: #fff;
+    border: none;
+    border-radius: .25rem;
+    cursor: pointer;
+    opacity: .9;
+    font-size: 1rem;
+    transition: .4s;
+}
+
+#open-modal {
+    background-color: #007bff;
+}
+
+#open-modal:hover {
+    background-color: #007bffdc;
+}
+#close-modal:hover {
+    background-color: rgba(136, 136, 136, 0.654);
+}
+#fade, #modal {
+    transition: .5s;
+    opacity: 1;
+    pointer-events: all; /* qui e cololoco */
+}
+
+#fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 5;
+}
+
+#modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* forma de centralizar sem usar o flex box, apos os 2 atributos anteriores */
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 90%; /* ja da a responsividade sem usar medias query */
+    padding: 1.2rem;
+    border-radius: .5rem;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem; /* mar e pd iguais da espaçamento igual, é boa pratica */
+}
+
+.modal-body p {
+    margin-bottom: 1rem;
+    letter-spacing: .05rem;
+}
+
+#modal.hide, #fade.hide {
+    /* pq uso opacity e nao o display none? pq posso controlar a trasição, para fazer as animações */
+    opacity: 0;
+    pointer-events: none; /* aqui eu tiro */
+}
+
+#modal.hide {
+    top: 110vh; /* gera a animação */
+}
